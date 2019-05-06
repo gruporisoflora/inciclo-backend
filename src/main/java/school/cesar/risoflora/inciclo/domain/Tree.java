@@ -9,6 +9,9 @@ public class Tree {
     private int growTime;
     private Date lastPoda;
     private String especie;
+    
+    private Post post;
+    
 
     public Tree(int id, int growTime, Date lastPoda, String especie) {
         this.id = id;

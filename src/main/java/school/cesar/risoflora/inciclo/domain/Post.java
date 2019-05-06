@@ -10,7 +10,8 @@ public class Post {
     private int identificator ;
     private Point2D location;
     private int impact;
-
+    private Region region;
+    
 
     public Post(int id, int identificator, Point2D location, int impact) {
         this.id = id;
