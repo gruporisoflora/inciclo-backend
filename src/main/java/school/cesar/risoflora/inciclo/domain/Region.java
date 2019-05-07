@@ -1,23 +1,48 @@
 package school.cesar.risoflora.inciclo.domain;
 
+
 import school.cesar.risoflora.inciclo.utils.Coordenate;
 
+import javax.persistence.*;
 import java.util.List;
 
+
+@Entity
+@Table(name="regions")
 public class Region {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="region_id")
     private int id;
-    private List<Coordenate> coordenates;
+
+
+
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name="region_id")
+
+    private List<Post> posts;
+
 
     public Region(){
 
     }
 
-    public Region(List<Coordenate> coordenates, int id) {
-        this.coordenates = coordenates;
-        this.id= id;
+    public Region( List<Post> posts) {
+
+        this.posts = posts;
     }
 
+
+
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
 
     public int getId() {
         return id;
@@ -27,11 +52,4 @@ public class Region {
         this.id = id;
     }
 
-    public List<Coordenate> getCoordenates() {
-        return coordenates;
-    }
-
-    public void setCoordenates(List<Coordenate> coordenates) {
-        this.coordenates = coordenates;
-    }
 }

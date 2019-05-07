@@ -27,3 +27,10 @@ HELP.md
 
 ### VS Code ###
 .vscode/
+/.gitignore
+/.mvn/
+/README.md
+/mvnw
+/mvnw.cmd
+/pom.xml
+/src/

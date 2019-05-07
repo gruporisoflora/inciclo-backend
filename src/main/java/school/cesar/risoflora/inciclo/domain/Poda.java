@@ -1,34 +1,63 @@
 package school.cesar.risoflora.inciclo.domain;
 
 
-import school.cesar.risoflora.inciclo.utils.Coordenate;
+import javax.persistence.*;
 
-import java.awt.geom.Point2D;
 import java.util.List;
 
+
+
+
+
+
+
+@Entity
+@Table(name="podas")
 public class Poda {
-    private List<Point2D> area;
+	
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="poda_id")
+	private int id;
+
+
+	
+	@OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "poda_id")
     private List<Post> posts;
+
     private PodaStep step;
     private PodaStepStatus status;
 
     private CLevel cLevel;
     
     
- 
+    public Poda(){
 
-    public Poda(List<Point2D> area, List<Post> posts, PodaStep step, PodaStepStatus status, CLevel cLevel) {
-		
-		this.area = area;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Poda(List<Post> posts, PodaStep step, PodaStepStatus status, CLevel cLevel) {
+
+
 		this.posts = posts;
 		this.step = step;
 		this.status = status;
 		this.cLevel = cLevel;
 	}
-    
-public Poda(List<Point2D> area, List<Post> posts, PodaStep step,  CLevel cLevel) {
+
+public Poda(List<Post> posts, PodaStep step,  CLevel cLevel) {
 		
-		this.area = area;
+
 		this.posts = posts;
 		this.step = step;
 		this.status = status;
@@ -52,13 +81,7 @@ public Poda(List<Point2D> area, List<Post> posts, PodaStep step,  CLevel cLevel)
 	}
 
 
-	public List<Point2D> getArea() {
-        return area;
-    }
 
-    public void setArea(List<Point2D> area) {
-        this.area = area;
-    }
 
     public PodaStep getStep() {
         return step;

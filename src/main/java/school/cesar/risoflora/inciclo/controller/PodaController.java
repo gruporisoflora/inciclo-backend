@@ -1,11 +1,11 @@
 package school.cesar.risoflora.inciclo.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import school.cesar.risoflora.inciclo.domain.Poda;
+import school.cesar.risoflora.inciclo.repositories.PodaRepository;
+import school.cesar.risoflora.inciclo.services.PodaService;
 import school.cesar.risoflora.inciclo.utils.Coordenate;
 
 import java.awt.geom.Point2D;
@@ -17,55 +17,26 @@ import java.util.List;
 @RequestMapping(value="/podas")
 public class PodaController {
 
+	@Autowired
+	private PodaService podaService;
 
-	
     @GetMapping
-    public List<Poda> listaPodas(){
-
-        List<Poda> result = new ArrayList<>();
-
-            
-        
-        
-        result.add(new Poda(new ArrayList<>()
-        						,new ArrayList<>()
-        						,Poda.PodaStep.IN_INPECTION
-        						,Poda.PodaStepStatus.DONE
-        						,Poda.CLevel.LOW
-        						));
-        result.add(new Poda(new ArrayList<>()
-				,new ArrayList<>()
-				,Poda.PodaStep.CHECKED_TO_CUT
-				,Poda.PodaStepStatus.DELAYED
-				,Poda.CLevel.HIGH
-				));
-        
-        result.add(new Poda(new ArrayList<>()
-				,new ArrayList<>()
-				,Poda.PodaStep.GROWING
-			
-				,Poda.CLevel.LOW
-				));
-        
-        result.add(new Poda(new ArrayList<>()
-				,new ArrayList<>()
-				,Poda.PodaStep.NEXT_TO_CABLE
-	
-				,Poda.CLevel.HIGH
-				));
-        
-        result.add(new Poda(new ArrayList<>()
-				,new ArrayList<>()
-				,Poda.PodaStep.IN_INPECTION
-				,Poda.PodaStepStatus.DONE
-				,Poda.CLevel.LOW
-				));
+    public @ResponseBody Iterable<Poda> listaPodas(){
 
 
 
 
-        return result;
 
+
+        return podaService.findAll();
+
+    }
+
+    @PostMapping
+    public void insert(@RequestBody Poda poda){
+
+        System.out.println(poda.getPosts().get(0).toString());
+        podaService.insert(poda);
     }
 
 }

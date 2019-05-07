@@ -1,17 +1,30 @@
 package school.cesar.risoflora.inciclo.domain;
 
+import javax.persistence.*;
 import java.util.Date;
 
+
+
+
+@Entity
+@Table(name="trees")
 public class Tree {
 
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="tree_id")
     private int id;
+
+
     private int growTime;
+
+    @Temporal(TemporalType.DATE)
     private Date lastPoda;
     private String especie;
     
-    private Post post;
     
+
 
     public Tree(int id, int growTime, Date lastPoda, String especie) {
         this.id = id;
@@ -22,6 +35,9 @@ public class Tree {
 
     public Tree() {
     }
+
+
+
 
     public int getId() {
         return id;

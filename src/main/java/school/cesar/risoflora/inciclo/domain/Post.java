@@ -1,29 +1,36 @@
 package school.cesar.risoflora.inciclo.domain;
 
-import school.cesar.risoflora.inciclo.utils.Coordenate;
+import java.util.List;
 
-import java.awt.geom.Point2D;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="posts")
 public class Post {
+	
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="post_id")
+    private int id;
 
-    private int id ;
+
     private int identificator ;
-    private Point2D location;
+    private Double xPosition;
+    private Double yPosition;
     private int impact;
-    private Region region;
     
-
-    public Post(int id, int identificator, Point2D location, int impact) {
-        this.id = id;
-        this.identificator = identificator;
-        this.location = location;
-        this.impact = impact;
-    }
-
-
+    
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name="post_id")
+    private List<Tree> trees;
+   
+    
     public Post(){
 
     }
+
 
     public int getId() {
         return id;
@@ -41,19 +48,36 @@ public class Post {
         this.identificator = identificator;
     }
 
-    public Point2D getLocation() {
-        return location;
-    }
-
-    public void setLocation(Point2D location) {
-        this.location = location;
-    }
-
     public int getImpact() {
         return impact;
     }
 
     public void setImpact(int impact) {
         this.impact = impact;
+    }
+
+
+    public Double getxPosition() {
+        return xPosition;
+    }
+
+    public void setxPosition(Double xPosition) {
+        this.xPosition = xPosition;
+    }
+
+    public Double getyPosition() {
+        return yPosition;
+    }
+
+    public void setyPosition(Double yPosition) {
+        this.yPosition = yPosition;
+    }
+
+    public List<Tree> getTrees() {
+        return trees;
+    }
+
+    public void setTrees(List<Tree> trees) {
+        this.trees = trees;
     }
 }
