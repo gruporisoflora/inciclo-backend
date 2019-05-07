@@ -4,19 +4,17 @@ Incliclo project backend
 ### API
 http://inciclo.us-east-2.elasticbeanstalk.com
 
+----------------
 
 #### Endpoints
 
 `GET` */podas*
 
-  Response:
+Response:
 			
--  200 OK:
+200 OK:
 
-
-
-     
-     {Array<Object>:{
+    {Array<Object>:{
             id:Int,
             posts:Array<Object>{
                 id:Int
@@ -32,7 +30,7 @@ http://inciclo.us-east-2.elasticbeanstalk.com
                 }
             }
             step:Enum:{
-                  GROWING,
+                    GROWING,
                 NEXT_TO_CABLE,
                 IN_INPECTION,
                 CHECKED_TO_CUT;
@@ -40,7 +38,7 @@ http://inciclo.us-east-2.elasticbeanstalk.com
             status:Enum:{
                 DELAYED,
                 DONE,
-              SCHEDULED;
+                SCHEDULED;
             }
             cLevel:Enum:{
                 LOW,
@@ -54,11 +52,12 @@ http://inciclo.us-east-2.elasticbeanstalk.com
 		
 		
 		
+        
 `POST` */podas*
 
    Body example:
    
-        ```json
+```javascript
         {
         	"step":"GROWING",
         	"status":"DELAYED",
@@ -80,5 +79,5 @@ http://inciclo.us-east-2.elasticbeanstalk.com
         	]
         	
         } 
-        ```
+        
         
