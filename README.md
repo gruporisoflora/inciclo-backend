@@ -15,7 +15,7 @@ http://inciclo.us-east-2.elasticbeanstalk.com
 
 
 
-     ```json
+     
      {Array<Object>:{
             id:Int,
             posts:Array<Object>{
