@@ -7,6 +7,7 @@ http://inciclo.us-east-2.elasticbeanstalk.com
 ----------------
 
 #### Endpoints
+List all Podas 
 
 `GET` */podas*
 
@@ -52,7 +53,8 @@ Response:
 		
 		
 		
-        
+Insert Poda 
+
 `POST` */podas*
 
    Body example:

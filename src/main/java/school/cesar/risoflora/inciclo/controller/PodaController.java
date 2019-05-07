@@ -4,6 +4,7 @@ package school.cesar.risoflora.inciclo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import school.cesar.risoflora.inciclo.domain.Poda;
+import school.cesar.risoflora.inciclo.domain.ScheduleOrder;
 import school.cesar.risoflora.inciclo.repositories.PodaRepository;
 import school.cesar.risoflora.inciclo.services.PodaService;
 import school.cesar.risoflora.inciclo.utils.Coordenate;
@@ -11,6 +12,7 @@ import school.cesar.risoflora.inciclo.utils.Coordenate;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -23,20 +25,22 @@ public class PodaController {
     @GetMapping
     public @ResponseBody Iterable<Poda> listaPodas(){
 
-
-
-
-
-
         return podaService.findAll();
 
     }
 
-    @PostMapping
-    public void insert(@RequestBody Poda poda){
+    @PutMapping(value = "/scheduling")
+    public void schedulePoda(@RequestParam int id, @RequestBody ScheduleOrder order){
 
-        System.out.println(poda.getPosts().get(0).toString());
-        podaService.insert(poda);
+        podaService.schedule(id,order);
+    }
+
+    @PostMapping
+    public Map<String,String> insert(@RequestBody Poda poda){
+
+
+
+        return podaService.insert(poda);
     }
 
 }
