@@ -49,7 +49,7 @@ http://inciclo.us-east-2.elasticbeanstalk.com
             }
         }
     }
-    ```
+    
 		
 		
 		
@@ -57,8 +57,9 @@ http://inciclo.us-east-2.elasticbeanstalk.com
 `POST` */podas*
 
    Body example:
-    
-        ```{
+   
+        ```json
+        {
         	"step":"GROWING",
         	"status":"DELAYED",
         	"cLevel":"LOW",
@@ -78,5 +79,6 @@ http://inciclo.us-east-2.elasticbeanstalk.com
                     }
         	]
         	
-        } ```
+        } 
+        ```
         
