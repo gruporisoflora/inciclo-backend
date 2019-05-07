@@ -15,7 +15,7 @@ http://inciclo.us-east-2.elasticbeanstalk.com
 
 
 
-     {Array<Object>:{
+     ```{Array<Object>:{
             id:Int,
             posts:Array<Object>{
                 id:Int
@@ -47,7 +47,7 @@ http://inciclo.us-east-2.elasticbeanstalk.com
                 HIGH;
             }
         }
-    }
+    }```
 		
 		
 		
@@ -56,7 +56,7 @@ http://inciclo.us-east-2.elasticbeanstalk.com
 
    Body example:
     
-        {
+        ```{
         	"step":"GROWING",
         	"status":"DELAYED",
         	"cLevel":"LOW",
@@ -76,5 +76,5 @@ http://inciclo.us-east-2.elasticbeanstalk.com
                     }
         	]
         	
-        }
+        } ```
         
