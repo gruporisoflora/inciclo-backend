@@ -15,7 +15,8 @@ http://inciclo.us-east-2.elasticbeanstalk.com
 
 
 
-     ```{Array<Object>:{
+     ```json
+     {Array<Object>:{
             id:Int,
             posts:Array<Object>{
                 id:Int
@@ -47,7 +48,8 @@ http://inciclo.us-east-2.elasticbeanstalk.com
                 HIGH;
             }
         }
-    }```
+    }
+    ```
 		
 		
 		
