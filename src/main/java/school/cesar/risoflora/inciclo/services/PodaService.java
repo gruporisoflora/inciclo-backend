@@ -18,8 +18,8 @@ public class PodaService {
     @Autowired
     PodaRepository podaRepository;
 
-    HashMap<String,String>  errorStatus;
-    HashMap<String,String>  successStatus;
+    HashMap<String,String>  errorStatus = new HashMap<>();
+    HashMap<String,String>  successStatus = new HashMap<>();
 
 
     public PodaService(){

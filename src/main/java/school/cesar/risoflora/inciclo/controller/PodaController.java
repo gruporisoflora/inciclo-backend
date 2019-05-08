@@ -31,9 +31,9 @@ public class PodaController {
 
 
     @PutMapping(value = "/scheduling")
-    public @ResponseBody void schedulePoda(@RequestBody ScheduleOrder order, @RequestParam int id){
+    public @ResponseBody Map<String,String> schedulePoda(@RequestBody ScheduleOrder order, @RequestParam int id){
 
-        podaService.schedule(id,order);
+        return podaService.schedule(id,order);
     }
 
     @PostMapping

@@ -86,7 +86,13 @@ Insert Poda
 
 Schedule Poda Or Inspection
 
-`PUT` */podas/scheduling*
+`PUT` */podas/scheduling/:id*
    
    Body example:
+   
+```javascript
+    {
+        "scheduleType":"INSPECTION" //Enum{INSPECTION , PODA}
+    }
+```
         
