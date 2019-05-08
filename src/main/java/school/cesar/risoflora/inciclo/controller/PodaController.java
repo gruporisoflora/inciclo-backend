@@ -29,8 +29,9 @@ public class PodaController {
 
     }
 
+
     @PutMapping(value = "/scheduling")
-    public void schedulePoda(@RequestParam int id, @RequestBody ScheduleOrder order){
+    public @ResponseBody void schedulePoda(@RequestBody ScheduleOrder order, @RequestParam int id){
 
         podaService.schedule(id,order);
     }

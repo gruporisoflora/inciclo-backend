@@ -4,7 +4,7 @@ public class ScheduleOrder {
 
     private int id;
 
-    private PodaScheduleType type;
+    private PodaScheduleType scheduleType;
 
 
     public ScheduleOrder() {
@@ -12,7 +12,7 @@ public class ScheduleOrder {
 
     public ScheduleOrder(int id, PodaScheduleType type) {
         this.id = id;
-        this.type = type;
+        this.scheduleType = type;
     }
 
 
@@ -24,12 +24,12 @@ public class ScheduleOrder {
         this.id = id;
     }
 
-    public PodaScheduleType getType() {
-        return type;
+    public PodaScheduleType getScheduleType() {
+        return scheduleType;
     }
 
-    public void setType(PodaScheduleType type) {
-        this.type = type;
+    public void setScheduleType(PodaScheduleType scheduleType) {
+        this.scheduleType = scheduleType;
     }
 
     public enum PodaScheduleType{
@@ -38,11 +38,11 @@ public class ScheduleOrder {
         PODA(1);
 
 
-        private int inspectionType;
+        private int scheduleType;
 
 
         PodaScheduleType(int type){
-            this.inspectionType = type;
+            this.scheduleType = type;
         }
     }
 }

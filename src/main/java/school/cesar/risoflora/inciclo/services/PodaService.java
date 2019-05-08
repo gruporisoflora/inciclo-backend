@@ -18,31 +18,34 @@ public class PodaService {
     @Autowired
     PodaRepository podaRepository;
 
+    HashMap<String,String>  errorStatus;
+    HashMap<String,String>  successStatus;
+
+
+    public PodaService(){
+        errorStatus.put("STATUS","FAILED");
+        successStatus.put("STATUS","OK");
+    }
 
     public Map<String,String> insert(Poda poda){
         podaRepository.save(poda);
 
-        HashMap<String,String> response = new HashMap<>();
 
-        response.put("STATUS","DONE");
-        return response;
+
+
+        return this.successStatus;
     }
 
-    public void schedule(int id,ScheduleOrder order){
+    public HashMap<String,String> schedule(int id,ScheduleOrder order){
 
-        Poda poda;
-
-        Optional<Poda> requestedPoda = this.get(id);
-
-        if(requestedPoda.isPresent()){
-            poda = requestedPoda.get();
-        }else{
-            //TODO Tratar exceção
-            return;
-        }
+        Poda poda = this.get(id).get();
 
 
-        switch (order.getType()){
+
+        System.out.println(id);
+
+
+        switch (order.getScheduleType()){
             case INSPECTION:
                 System.out.println("Agendamento de inspeção");
                 poda.setStep(Poda.PodaStep.IN_INPECTION);
@@ -58,6 +61,7 @@ public class PodaService {
 
 
         this.insert(poda);
+        return this.successStatus;
 
     }
 

@@ -82,4 +82,11 @@ Insert Poda
         	
         } 
         
+```
+
+Schedule Poda Or Inspection
+
+`PUT` */podas/scheduling*
+   
+   Body example:
         
