@@ -17,7 +17,12 @@ public class Poda {
 	
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="course_seq")
+	@SequenceGenerator(
+		    name="course_seq",
+		    sequenceName="course_sequence",
+		    allocationSize=1
+		)
     @Column(name="poda_id")
 	private int id;
 
