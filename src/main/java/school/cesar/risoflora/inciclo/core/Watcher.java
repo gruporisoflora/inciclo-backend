@@ -15,6 +15,6 @@ public class Watcher implements Job {
     */
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        System.out.println("Realizando tarefa");
+        //System.out.println("Realizando tarefa");
     }
 }

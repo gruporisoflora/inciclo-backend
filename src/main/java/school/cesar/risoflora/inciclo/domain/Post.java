@@ -1,19 +1,35 @@
 package school.cesar.risoflora.inciclo.domain;
 
+import org.neo4j.ogm.annotation.GraphId;
+import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
+import org.neo4j.ogm.annotation.RelationshipEntity;
+
 import java.util.List;
 
 
 import javax.persistence.*;
 
+
+/**
+ * Entidade híbrida. Serve de modelo para o Hibernate(MySQL)
+ * e para o Neo4j(Nó de grafo)
+ */
+
+
+
+
 @Entity
 @Table(name="posts")
+@NodeEntity
 public class Post {
 	
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="post_id")
-    private int id;
+    @GraphId
+    private Long id;
 
 
     private int identificator ;
@@ -25,18 +41,32 @@ public class Post {
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name="post_id")
     private List<Tree> trees;
-   
-    
+
+
+    @Transient
+    @Relationship(type = "CONNECTED")
+    private List<Post> conectedPosts;
+
+
+
     public Post(){
 
     }
 
 
-    public int getId() {
+    public List<Post> getConectedPosts() {
+        return conectedPosts;
+    }
+
+    public void setConectedPosts(List<Post> conectedPosts) {
+        this.conectedPosts = conectedPosts;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -80,4 +110,7 @@ public class Post {
     public void setTrees(List<Tree> trees) {
         this.trees = trees;
     }
+
+
+
 }
