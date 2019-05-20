@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import school.cesar.risoflora.inciclo.domain.Post;
 import school.cesar.risoflora.inciclo.services.PostService;
-import school.cesar.risoflora.inciclo.utils.Response;
+import school.cesar.risoflora.inciclo.utils.ResponseBody;
+
+import java.util.ArrayList;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -15,14 +17,17 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-
-
     @PostMapping
-    public @ResponseBody Response insert(@RequestBody Post post){
-
-
+    public @org.springframework.web.bind.annotation.ResponseBody
+    ResponseBody insert(@RequestBody ArrayList<Post> post){
 
         return postService.insertPost(post);
+    }
+
+
+    @GetMapping
+    public ResponseBody findAll(){
+        return postService.findAll();
     }
 
 }

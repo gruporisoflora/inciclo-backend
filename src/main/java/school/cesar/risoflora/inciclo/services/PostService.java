@@ -7,7 +7,9 @@ import school.cesar.risoflora.inciclo.domain.Post;
 
 
 import school.cesar.risoflora.inciclo.repositories.PostRepository;
-import school.cesar.risoflora.inciclo.utils.Response;
+import school.cesar.risoflora.inciclo.utils.ResponseBody;
+
+import java.util.ArrayList;
 
 @Service
 public class PostService {
@@ -16,12 +18,24 @@ public class PostService {
     private PostRepository postRepository;
 
 
-    public Response insertPost(Post post){
+    public ResponseBody insertPost(ArrayList<Post> posts){
 
-        postRepository.save(post);
+        postRepository
+                .saveAll((Iterable<? extends Post>) posts);
 
-        return new Response(Response.ResponseType.SUCCESS);
+        return new ResponseBody(ResponseBody.ResponseType.OK);
     }
+
+
+    public ResponseBody findAll(){
+
+        Iterable<Post> posts = postRepository.findAll();
+
+        return new ResponseBody<>(ResponseBody.ResponseType.OK,posts);
+
+    }
+
+
 
 
 
