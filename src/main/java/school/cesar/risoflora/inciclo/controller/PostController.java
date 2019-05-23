@@ -30,9 +30,6 @@ public class PostController {
         return postService.findAll();
     }
 
-    @PutMapping
-    public ResponseBody update(ArrayList<Post> posts){
-        return postService.updatePosts(posts);
-    }
+
 
 }

@@ -23,6 +23,9 @@ public class PostService {
         Post newPost = postRepository
                 .save( post);
 
+        if(newPost.getConectedPosts() == null){
+            newPost.setConectedPosts(new ArrayList<>());
+        }
         return new ResponseBody<>(ResponseBody.ResponseType.OK,newPost);
     }
 
@@ -41,11 +44,11 @@ public class PostService {
 
     }
 
-    public ResponseBody updatePosts(ArrayList<Post> posts){
+    public ResponseBody updatePosts(Post posts){
 
+        System.out.println(posts);
 
-
-        postRepository.saveAll(posts);
+        postRepository.save(posts);
         return new ResponseBody(ResponseBody.ResponseType.OK);
     }
 
