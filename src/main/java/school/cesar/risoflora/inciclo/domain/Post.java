@@ -33,10 +33,13 @@ public class Post {
 
 
     private int identificator ;
-    private Double xPosition;
-    private Double yPosition;
+    private Double latitude;
+    private Double longitude;
     private int impact;
-    
+    private int treeQtd;
+
+
+
     
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name="post_id")
@@ -53,6 +56,30 @@ public class Post {
 
     }
 
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public int getTreeQtd() {
+        return treeQtd;
+    }
+
+    public void setTreeQtd(int treeQtd) {
+        this.treeQtd = treeQtd;
+    }
 
     public List<Post> getConectedPosts() {
         return conectedPosts;
@@ -84,23 +111,6 @@ public class Post {
 
     public void setImpact(int impact) {
         this.impact = impact;
-    }
-
-
-    public Double getxPosition() {
-        return xPosition;
-    }
-
-    public void setxPosition(Double xPosition) {
-        this.xPosition = xPosition;
-    }
-
-    public Double getyPosition() {
-        return yPosition;
-    }
-
-    public void setyPosition(Double yPosition) {
-        this.yPosition = yPosition;
     }
 
     public List<Tree> getTrees() {

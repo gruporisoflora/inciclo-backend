@@ -18,12 +18,12 @@ public class PostService {
     private PostRepository postRepository;
 
 
-    public ResponseBody insertPost(ArrayList<Post> posts){
+    public ResponseBody insertPost(Post post){
 
-        postRepository
-                .saveAll((Iterable<? extends Post>) posts);
+        Post newPost = postRepository
+                .save( post);
 
-        return new ResponseBody(ResponseBody.ResponseType.OK);
+        return new ResponseBody<>(ResponseBody.ResponseType.OK,newPost);
     }
 
 
@@ -31,8 +31,22 @@ public class PostService {
 
         Iterable<Post> posts = postRepository.findAll();
 
+
+        for(Post item: posts){
+            if(item.getConectedPosts() == null){
+                item.setConectedPosts(new ArrayList<>());
+            }
+        }
         return new ResponseBody<>(ResponseBody.ResponseType.OK,posts);
 
+    }
+
+    public ResponseBody updatePosts(ArrayList<Post> posts){
+
+
+
+        postRepository.saveAll(posts);
+        return new ResponseBody(ResponseBody.ResponseType.OK);
     }
 
 

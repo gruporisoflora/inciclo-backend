@@ -19,7 +19,7 @@ public class PostController {
 
     @PostMapping
     public @org.springframework.web.bind.annotation.ResponseBody
-    ResponseBody insert(@RequestBody ArrayList<Post> post){
+    ResponseBody insert(@RequestBody Post post){
 
         return postService.insertPost(post);
     }
@@ -28,6 +28,11 @@ public class PostController {
     @GetMapping
     public ResponseBody findAll(){
         return postService.findAll();
+    }
+
+    @PutMapping
+    public ResponseBody update(ArrayList<Post> posts){
+        return postService.updatePosts(posts);
     }
 
 }
