@@ -3,6 +3,7 @@ package school.cesar.risoflora.inciclo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import school.cesar.risoflora.inciclo.domain.Bound;
 import school.cesar.risoflora.inciclo.domain.Post;
 import school.cesar.risoflora.inciclo.services.PostService;
 import school.cesar.risoflora.inciclo.utils.ResponseBody;
@@ -30,6 +31,14 @@ public class PostController {
         return postService.findAll();
     }
 
+
+    @PostMapping
+    @RequestMapping(value="/bounded")
+    public ResponseBody<ArrayList<Post>> findByBound(@RequestBody Bound bound){
+
+        System.out.println(bound.toString());
+        return postService.findbyBound(bound);
+    }
 
 
 }

@@ -3,6 +3,7 @@ package school.cesar.risoflora.inciclo.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import school.cesar.risoflora.inciclo.domain.Bound;
 import school.cesar.risoflora.inciclo.domain.Post;
 
 
@@ -50,6 +51,18 @@ public class PostService {
 
         postRepository.save(posts);
         return new ResponseBody(ResponseBody.ResponseType.OK);
+    }
+
+
+    public ResponseBody<ArrayList<Post>> findbyBound(Bound bound){
+
+        return new ResponseBody<>(
+                ResponseBody.ResponseType.OK,postRepository.getPostsByBound(
+                        bound.getSw().getLatitude(),
+                bound.getNw().getLatitude(),
+                bound.getNw().getLongitude(),
+                bound.getNe().getLongitude())
+        );
     }
 
 

@@ -1,33 +1,40 @@
 package school.cesar.risoflora.inciclo.utils;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Coordenate {
 
-    private int x;
-    private int y;
+    @JsonProperty("lat")
+    private double latitude;
+    @JsonProperty("lng")
+    private double longitude;
+
+
 
 
     public Coordenate(){
 
     }
 
-    public Coordenate(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Coordenate(double latitude, double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
-    public int getX() {
-        return x;
+
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
-    public int getY() {
-        return y;
+    public double getLongitude() {
+        return longitude;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 }
