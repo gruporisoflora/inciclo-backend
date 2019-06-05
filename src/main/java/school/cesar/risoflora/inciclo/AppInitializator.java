@@ -5,9 +5,12 @@ import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import school.cesar.risoflora.inciclo.core.RegionsManager;
 import school.cesar.risoflora.inciclo.core.Watcher;
-
+import school.cesar.risoflora.inciclo.services.RegionsService;
+import com.google.common.collect.Lists;
 import javax.annotation.PostConstruct;
 
 @Component
@@ -16,6 +19,10 @@ public class AppInitializator {
     private static final Logger log = LoggerFactory.getLogger(AppInitializator.class);
 
     private static final String CRON_EXPRESSION_DEV = "* * * ? * *";
+
+
+    @Autowired
+    private RegionsService service;
 
     @PostConstruct
     private void init(){
@@ -34,6 +41,8 @@ public class AppInitializator {
         }catch (Exception e){
             e.printStackTrace();
         }
+
+
 
     }
 }

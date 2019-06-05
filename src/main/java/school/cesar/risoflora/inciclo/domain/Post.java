@@ -37,7 +37,7 @@ public class Post {
     private int impact;
     private int treeQtd;
 
-
+    private Long poda;
 
     public Post(){
 

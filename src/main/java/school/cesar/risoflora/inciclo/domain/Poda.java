@@ -28,7 +28,7 @@ public class Poda {
 
 
 	
-	@OneToMany(cascade = {CascadeType.ALL})
+	@OneToMany(cascade = {CascadeType.ALL},mappedBy = "poda")
     @JoinColumn(name = "poda_id")
     private List<Post> posts;
 
