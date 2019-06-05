@@ -28,7 +28,6 @@ public class Post {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="post_id")
-    @GraphId
     private Long id;
 
 
@@ -40,53 +39,8 @@ public class Post {
 
 
 
-    
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name="post_id")
-    private List<Tree> trees;
-
-
-    @Transient
-    @Relationship(type = "CONNECTED")
-    private List<Post> conectedPosts;
-
-
-
     public Post(){
 
-    }
-
-
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
-
-    public int getTreeQtd() {
-        return treeQtd;
-    }
-
-    public void setTreeQtd(int treeQtd) {
-        this.treeQtd = treeQtd;
-    }
-
-    public List<Post> getConectedPosts() {
-        return conectedPosts;
-    }
-
-    public void setConectedPosts(List<Post> conectedPosts) {
-        this.conectedPosts = conectedPosts;
     }
 
     public Long getId() {
@@ -105,6 +59,22 @@ public class Post {
         this.identificator = identificator;
     }
 
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
     public int getImpact() {
         return impact;
     }
@@ -113,14 +83,13 @@ public class Post {
         this.impact = impact;
     }
 
-    public List<Tree> getTrees() {
-        return trees;
+    public int getTreeQtd() {
+        return treeQtd;
     }
 
-    public void setTrees(List<Tree> trees) {
-        this.trees = trees;
+    public void setTreeQtd(int treeQtd) {
+        this.treeQtd = treeQtd;
     }
-
 
 
 }

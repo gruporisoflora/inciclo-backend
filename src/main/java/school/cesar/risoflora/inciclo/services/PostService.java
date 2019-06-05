@@ -24,9 +24,6 @@ public class PostService {
         Post newPost = postRepository
                 .save( post);
 
-        if(newPost.getConectedPosts() == null){
-            newPost.setConectedPosts(new ArrayList<>());
-        }
         return new ResponseBody<>(ResponseBody.ResponseType.OK,newPost);
     }
 
@@ -36,11 +33,6 @@ public class PostService {
         Iterable<Post> posts = postRepository.findAll();
 
 
-        for(Post item: posts){
-            if(item.getConectedPosts() == null){
-                item.setConectedPosts(new ArrayList<>());
-            }
-        }
         return new ResponseBody<>(ResponseBody.ResponseType.OK,posts);
 
     }
@@ -57,12 +49,7 @@ public class PostService {
     public ResponseBody<ArrayList<Post>> findbyBound(Bound bound){
 
         return new ResponseBody<>(
-                ResponseBody.ResponseType.OK,postRepository.getPostsByBound(
-                        bound.getSw().getLatitude(),
-                bound.getNw().getLatitude(),
-                bound.getNw().getLongitude(),
-                bound.getNe().getLongitude())
-        );
+                ResponseBody.ResponseType.OK,new ArrayList<>());
     }
 
 

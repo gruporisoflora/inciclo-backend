@@ -20,7 +20,6 @@ public class Region {
 
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name="region_id")
-
     private List<Post> posts;
 
 
