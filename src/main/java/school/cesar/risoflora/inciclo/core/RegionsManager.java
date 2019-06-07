@@ -14,7 +14,13 @@ public class RegionsManager {
 
 
     void execute(){
-            
+
+
+        RegionsManagementPipeline<Region, Region> podaInspectorExecutionPipeline
+                = new RegionsManagementPipeline<>(new RegionUpdater());
+
+        podaInspectorExecutionPipeline
+                .execute(regions.get(currentRegion));
     }
 
 

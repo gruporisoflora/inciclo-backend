@@ -5,6 +5,7 @@ import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 import org.neo4j.ogm.annotation.RelationshipEntity;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -38,6 +39,11 @@ public class Post {
     private int treeQtd;
 
     private Long poda;
+
+    private Date lastPoda;
+
+    private Long PodaAverage;
+
 
     public Post(){
 
@@ -91,5 +97,27 @@ public class Post {
         this.treeQtd = treeQtd;
     }
 
+    public Long getPoda() {
+        return poda;
+    }
 
+    public void setPoda(Long poda) {
+        this.poda = poda;
+    }
+
+    public Date getLastPoda() {
+        return lastPoda;
+    }
+
+    public void setLastPoda(Date lastPoda) {
+        this.lastPoda = lastPoda;
+    }
+
+    public Long getPodaAverage() {
+        return PodaAverage;
+    }
+
+    public void setPodaAverage(Long podaAverage) {
+        PodaAverage = podaAverage;
+    }
 }

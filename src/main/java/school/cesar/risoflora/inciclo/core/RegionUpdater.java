@@ -1,7 +1,18 @@
 package school.cesar.risoflora.inciclo.core;
 
-public class RegionUpdater{
+import school.cesar.risoflora.inciclo.domain.Post;
+import school.cesar.risoflora.inciclo.domain.Region;
+
+public class RegionUpdater implements Step<Region,Region>{
 
 
+    @Override
+    public Region execute(Region input) {
 
+
+        for(Post post: input.getPosts()){
+
+            post.set
+        }
+    }
 }
