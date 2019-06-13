@@ -33,7 +33,7 @@ public class Post {
     private int impact;
     private int treeQtd;
 
-    
+
 
     private Date lastPoda;
 
@@ -108,5 +108,20 @@ public class Post {
 
     public void setPodaAverage(Long podaAverage) {
         PodaAverage = podaAverage;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", identificator=" + identificator +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", impact=" + impact +
+                ", treeQtd=" + treeQtd +
+                ", lastPoda=" + lastPoda +
+                ", PodaAverage=" + PodaAverage +
+                '}';
     }
 }

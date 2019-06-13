@@ -32,6 +32,7 @@ public class RegionsManager {
 
         podaInspectorExecutionPipeline
                 .execute(regions.get(currentRegion));
+        currentRegion++;
     }
 
 

@@ -17,6 +17,7 @@ public class Watcher {
 
 
     private static  int a = 10;
+    private static final String CRON_EXPRESSION_DEV = "* * * ? * *";
 
     @Autowired
     private ApplicationContext context;
@@ -25,8 +26,7 @@ public class Watcher {
     */
 
 
-    @Scheduled(fixedRate = 1000)
-
+    @Scheduled(cron = CRON_EXPRESSION_DEV)
     public void execute() {
         System.out.println("Realizando tarefa");
 

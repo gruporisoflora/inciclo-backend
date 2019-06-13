@@ -62,4 +62,12 @@ public class Region {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "Region{" +
+                "id=" + id +
+                ", posts=" + posts +
+                ", podas=" + podas +
+                '}';
+    }
 }

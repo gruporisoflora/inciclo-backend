@@ -18,7 +18,7 @@ public class AppInitializator {
 
     private static final Logger log = LoggerFactory.getLogger(AppInitializator.class);
 
-    private static final String CRON_EXPRESSION_DEV = "* * * ? * *";
+
 
 
     @Autowired

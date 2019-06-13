@@ -155,4 +155,14 @@ public Poda(List<Post> posts, PodaStep step,  CLevel cLevel) {
     }
 
 
+    @Override
+    public String toString() {
+        return "Poda{" +
+                "id=" + id +
+                ", posts=" + posts +
+                ", step=" + step +
+                ", status=" + status +
+                ", cLevel=" + cLevel +
+                '}';
+    }
 }
