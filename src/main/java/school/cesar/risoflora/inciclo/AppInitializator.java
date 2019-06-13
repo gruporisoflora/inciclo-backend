@@ -26,7 +26,8 @@ public class AppInitializator {
 
     @PostConstruct
     private void init(){
-        try{
+
+       /* try{
             JobDetail watcherBuilder = JobBuilder
                     .newJob(Watcher.class)
                     .withDescription("watcherJob").build();
@@ -40,7 +41,7 @@ public class AppInitializator {
 
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
 
 
 

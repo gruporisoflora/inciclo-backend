@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import school.cesar.risoflora.inciclo.domain.Region;
 import school.cesar.risoflora.inciclo.repositories.RegionsRepository;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,19 @@ public class RegionsService {
     private RegionsRepository repo;
 
 
+
+    public RegionsRepository getRepo() {
+        return repo;
+    }
+
+    public void setRepo(RegionsRepository repo) {
+        this.repo = repo;
+    }
+
+
+
     public ArrayList<Region> findAll(){
+
 
         Iterable<Region> result=  repo.findAll();
         ArrayList<Region> regions = new ArrayList<>();
@@ -25,4 +38,6 @@ public class RegionsService {
 
         return regions;
     }
+
+
 }

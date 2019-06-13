@@ -1,22 +1,30 @@
 package school.cesar.risoflora.inciclo.core;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
 import school.cesar.risoflora.inciclo.domain.Poda;
 import school.cesar.risoflora.inciclo.domain.Region;
 import school.cesar.risoflora.inciclo.services.PostService;
 import school.cesar.risoflora.inciclo.services.RegionsService;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Service
 public class RegionsManager {
 
     private ArrayList<Region> regions;
     private int currentRegion;
+
+    @Autowired
     private RegionsService regionsService;
 
 
     void execute(){
+
+        if(regions == null || regions.size() == 0 ) return ;
 
 
         RegionsManagementPipeline<Region, List<Poda>> podaInspectorExecutionPipeline
@@ -44,21 +52,21 @@ public class RegionsManager {
     }
 
 
-
-
-    private static RegionsManager ourInstance;
-
-    public static RegionsManager getInstance() {
-        if(ourInstance == null){
-            ourInstance = new RegionsManager();
-        }
-
-        return ourInstance;
+    public RegionsService getRegionsService() {
+        return regionsService;
     }
 
-    private RegionsManager() {
-        regions = new ArrayList<>();
+    public void setRegionsService(RegionsService regionsService) {
+        this.regionsService = regionsService;
+    }
+
+    @PostConstruct
+    public void updateRegion(){
+        regions = regionsService.findAll();
         currentRegion = 0;
+    }
+
+    public RegionsManager() {
 
 
     }
