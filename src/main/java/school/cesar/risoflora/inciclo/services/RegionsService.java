@@ -16,7 +16,13 @@ public class RegionsService {
     private RegionsRepository repo;
 
 
-    public Iterable<Region> findAll(){
-        return repo.findAll();
+    public ArrayList<Region> findAll(){
+
+        Iterable<Region> result=  repo.findAll();
+        ArrayList<Region> regions = new ArrayList<>();
+
+        result.forEach(regions::add);
+
+        return regions;
     }
 }

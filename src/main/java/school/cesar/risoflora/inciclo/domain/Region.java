@@ -23,6 +23,11 @@ public class Region {
     private List<Post> posts;
 
 
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name="region_id")
+    private List<Poda> podas;
+
+
     public Region(){
 
     }
@@ -33,7 +38,13 @@ public class Region {
     }
 
 
+    public List<Poda> getPodas() {
+        return podas;
+    }
 
+    public void setPodas(List<Poda> podas) {
+        this.podas = podas;
+    }
 
     public List<Post> getPosts() {
         return posts;

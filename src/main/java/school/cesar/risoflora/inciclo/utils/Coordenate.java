@@ -10,8 +10,6 @@ public class Coordenate {
     private double longitude;
 
 
-
-
     public Coordenate(){
 
     }
@@ -21,6 +19,22 @@ public class Coordenate {
         this.longitude = longitude;
     }
 
+    public static double calculateDistance(double x1, double y1, double x2, double y2){
+
+
+
+
+        x1 = Math.abs(x1);
+        y1 = Math.abs(y1);
+        x2 = Math.abs(x2);
+        y2 = Math.abs(y2);
+
+
+        double x =  (x1>=x2)?x1-x2:x2-x1;
+        double y =  (y1>=y2)?y1-y2:y2-y1;
+
+        return Math.sqrt((x*x) + (y*y));
+    }
 
     public double getLatitude() {
         return latitude;

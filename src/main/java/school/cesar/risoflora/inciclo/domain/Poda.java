@@ -3,6 +3,7 @@ package school.cesar.risoflora.inciclo.domain;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,7 +29,7 @@ public class Poda {
 
 
 	
-	@OneToMany(cascade = {CascadeType.ALL},mappedBy = "poda")
+	@OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "poda_id")
     private List<Post> posts;
 
@@ -42,6 +43,15 @@ public class Poda {
 
     }
 
+    public Poda(ArrayList<Post> posts){
+
+        this.posts = posts;
+
+        this.step = PodaStep.NEXT_TO_CABLE;
+        this.status = PodaStepStatus.SCHEDULED;
+
+        this.cLevel = CLevel.LOW;
+    }
 
     public int getId() {
         return id;

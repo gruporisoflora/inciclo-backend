@@ -1,23 +1,26 @@
 package school.cesar.risoflora.inciclo.core;
 
+import school.cesar.risoflora.inciclo.domain.Poda;
 import school.cesar.risoflora.inciclo.domain.Region;
 import school.cesar.risoflora.inciclo.services.PostService;
+import school.cesar.risoflora.inciclo.services.RegionsService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class RegionsManager {
 
     private ArrayList<Region> regions;
     private int currentRegion;
-
+    private RegionsService regionsService;
 
 
     void execute(){
 
 
-        RegionsManagementPipeline<Region, Region> podaInspectorExecutionPipeline
-                = new RegionsManagementPipeline<>(new RegionUpdater());
+        RegionsManagementPipeline<Region, List<Poda>> podaInspectorExecutionPipeline
+                = new RegionsManagementPipeline<>(new PodaCreator());
 
         podaInspectorExecutionPipeline
                 .execute(regions.get(currentRegion));
@@ -40,14 +43,22 @@ public class RegionsManager {
         this.currentRegion = currentRegion;
     }
 
-    private static RegionsManager ourInstance = new RegionsManager();
+
+
+
+    private static RegionsManager ourInstance;
 
     public static RegionsManager getInstance() {
+        if(ourInstance == null){
+            ourInstance = new RegionsManager();
+        }
+
         return ourInstance;
     }
 
     private RegionsManager() {
-        this.currentRegion = 0;
+        regions = new ArrayList<>();
+        currentRegion = 0;
 
 
     }

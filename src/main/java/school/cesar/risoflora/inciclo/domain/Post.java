@@ -1,9 +1,5 @@
 package school.cesar.risoflora.inciclo.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Relationship;
-import org.neo4j.ogm.annotation.RelationshipEntity;
 
 import java.util.Date;
 import java.util.List;
@@ -22,7 +18,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="posts")
-@NodeEntity
 public class Post {
 	
 	
@@ -38,7 +33,7 @@ public class Post {
     private int impact;
     private int treeQtd;
 
-    private Long poda;
+    
 
     private Date lastPoda;
 
@@ -97,13 +92,7 @@ public class Post {
         this.treeQtd = treeQtd;
     }
 
-    public Long getPoda() {
-        return poda;
-    }
 
-    public void setPoda(Long poda) {
-        this.poda = poda;
-    }
 
     public Date getLastPoda() {
         return lastPoda;

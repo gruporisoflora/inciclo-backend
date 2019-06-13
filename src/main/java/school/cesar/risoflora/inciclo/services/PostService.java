@@ -53,6 +53,11 @@ public class PostService {
     }
 
 
+    public ArrayList<Post> findPostByRegionWithoutPoda(int id){
+        return postRepository.findByRegionIdWithoutPoda(id);
+    }
+
+
 
 
 
