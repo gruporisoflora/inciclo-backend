@@ -9,10 +9,5 @@ public class RegionUpdater implements Step<Region,Region>{
     @Override
     public Region execute(Region input) {
 
-
-        for(Post post: input.getPosts()){
-
-            post.set
-        }
     }
 }
