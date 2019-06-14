@@ -7,6 +7,7 @@ import school.cesar.risoflora.inciclo.domain.Region;
 import school.cesar.risoflora.inciclo.repositories.RegionsRepository;
 
 import javax.annotation.PostConstruct;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,15 +29,19 @@ public class RegionsService {
 
 
 
-    public ArrayList<Region> findAll(){
+    public List<Region> findAll(){
+
+        List<Region> result=  repo.findAll();
 
 
-        Iterable<Region> result=  repo.findAll();
-        ArrayList<Region> regions = new ArrayList<>();
 
-        result.forEach(regions::add);
 
-        return regions;
+        return result;
+    }
+
+    @Transactional
+    public void insertRegion(Region region){
+        repo.save(region);
     }
 
 

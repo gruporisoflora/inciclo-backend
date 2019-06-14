@@ -17,7 +17,7 @@ public class RegionsManagementPipeline<I,O> {
     }
 
     public O execute(I input){
-
+        System.out.println("Executando passo...");
         return current.execute(input);
     }
 

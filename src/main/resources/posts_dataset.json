@@ -1,0 +1,25 @@
+{
+  "regions": [
+    {
+      "posts": [
+        {"id":1,"identificator":2,
+          "latitude":-8.05381684517271,
+          "longitude":-34.876970206237786,
+          "impact":80,"treeQtd":3,
+          "lastPoda":null,
+          "podaAverage":null
+        },
+        {"id":2,
+          "identificator":3,
+          "latitude":-8.054672845681548,
+          "longitude":-34.87704612950313,
+          "impact":80,
+          "treeQtd":2,
+          "lastPoda":null,
+          "podaAverage":null
+        }
+      ],
+      "podas": []
+    }
+  ]
+}

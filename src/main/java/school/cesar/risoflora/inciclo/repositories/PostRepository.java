@@ -18,6 +18,6 @@ import java.util.ArrayList;
 public interface PostRepository extends JpaRepository<Post, Long> {
 
 
-    @Query(value="select * from posts WHERE region_id = regionId AND poda_id IS NULL", nativeQuery = true)
+    @Query(value="select * from posts WHERE region_id =:regionId AND poda_id IS NULL", nativeQuery = true)
     ArrayList<Post> findByRegionIdWithoutPoda(@Param("regionId") int id);
 }
