@@ -18,6 +18,7 @@ public class Watcher {
 
     private static  int a = 10;
     private static final String CRON_EXPRESSION_DEV = "* * * ? * *";
+    private static final String CRON_EXPRESSION_DEV_1_MINUTE = "0 0/1 * 1/1 * ? *";
 
 
     @Autowired

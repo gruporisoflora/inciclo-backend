@@ -18,8 +18,8 @@ public class Region {
 
 
 
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name="region_id")
+    @OneToMany(cascade = {CascadeType.ALL},mappedBy = "regionId")
+
     private List<Post> posts;
 
 

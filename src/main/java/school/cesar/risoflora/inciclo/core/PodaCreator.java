@@ -43,8 +43,6 @@ public class PodaCreator implements Step<List<Post>, List<Poda>> {
         ArrayList<Poda> podas = new ArrayList<>();
 
 
-
-
         for (int i = 0; i<posts.size();i++){
 
             Post currentPost = posts.get(i);

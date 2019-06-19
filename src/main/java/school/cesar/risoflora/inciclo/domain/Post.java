@@ -41,6 +41,8 @@ public class Post {
 
     private Long podaId;
 
+    private Long regionId;
+
     public Post(){
 
     }
@@ -59,6 +61,14 @@ public class Post {
 
     public void setPodaId(Long podaId) {
         this.podaId = podaId;
+    }
+
+    public Long getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(Long regionId) {
+        this.regionId = regionId;
     }
 
     public int getIdentificator() {
