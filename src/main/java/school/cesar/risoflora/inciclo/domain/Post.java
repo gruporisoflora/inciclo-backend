@@ -39,6 +39,7 @@ public class Post {
 
     private Long PodaAverage;
 
+    private Long podaId;
 
     public Post(){
 
@@ -50,6 +51,14 @@ public class Post {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getPodaId() {
+        return podaId;
+    }
+
+    public void setPodaId(Long podaId) {
+        this.podaId = podaId;
     }
 
     public int getIdentificator() {

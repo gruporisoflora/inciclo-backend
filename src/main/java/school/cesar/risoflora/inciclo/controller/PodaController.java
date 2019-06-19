@@ -37,9 +37,7 @@ public class PodaController {
     }
 
     @PostMapping
-    public Map<String,String> insert(@RequestBody Poda poda){
-
-
+    public Poda insert(@RequestBody Poda poda){
 
         return podaService.insert(poda);
     }

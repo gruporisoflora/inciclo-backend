@@ -70,12 +70,16 @@ public class PodaCreator implements Step<List<Post>, List<Poda>> {
 
                     if(distance> DISTANCE_TOLERANCE) continue;
 
+
                     inseringPosts.add(selectedPost);
 
                 }
             }
 
-            podas.add(new Poda(inseringPosts));
+            if(inseringPosts.size()> 0){
+                podas.add(new Poda(inseringPosts));
+            }
+
 
         }
         return podas;

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import school.cesar.risoflora.inciclo.domain.Poda;
 import school.cesar.risoflora.inciclo.domain.Post;
 import school.cesar.risoflora.inciclo.domain.Region;
+import school.cesar.risoflora.inciclo.services.PodaService;
 import school.cesar.risoflora.inciclo.services.PostService;
 import school.cesar.risoflora.inciclo.services.RegionsService;
 
@@ -25,6 +26,9 @@ public class RegionsManager {
     @Autowired
     private PostService postService;
 
+    @Autowired
+    private PodaService podaService;
+
     void execute(){
 
         if(regions == null || regions.size() == 0 ) return ;
@@ -42,7 +46,31 @@ public class RegionsManager {
                 .execute(postsWithoutPoda);
 
 
+
+
         System.out.println("Podas criadas: "+ result);
+
+
+
+        System.out.println("Adicionando ao banco...");
+
+
+        for (Poda poda : result) {
+            List<Post> podaPosts=  poda.getPosts();
+            poda.setPosts(new ArrayList<>());
+            Poda podaInsertionResult = podaService.insert(poda);
+
+
+
+            for (int i = 0; i < podaPosts.size(); i++) {
+                podaPosts.get(i).setPodaId(Long.valueOf(podaInsertionResult.getId()));
+            }
+
+            postService.insertAll(podaPosts);
+        }
+
+
+
         this.currentRegionId++;
 
         this.currentRegionId = this.currentRegionId % regions.size();

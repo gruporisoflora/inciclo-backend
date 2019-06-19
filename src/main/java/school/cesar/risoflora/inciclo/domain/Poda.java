@@ -29,8 +29,7 @@ public class Poda {
 
 
 	
-	@OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "poda_id")
+	@OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "podaId")
     private List<Post> posts;
 
     private PodaStep step;

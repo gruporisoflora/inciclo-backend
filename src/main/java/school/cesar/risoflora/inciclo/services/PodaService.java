@@ -7,7 +7,9 @@ import school.cesar.risoflora.inciclo.domain.Poda;
 import school.cesar.risoflora.inciclo.domain.ScheduleOrder;
 import school.cesar.risoflora.inciclo.repositories.PodaRepository;
 
+import javax.transaction.Transactional;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -27,14 +29,21 @@ public class PodaService {
         successStatus.put("STATUS","OK");
     }
 
-    public Map<String,String> insert(Poda poda){
-        podaRepository.save(poda);
+    public Poda insert(Poda poda){
+        Poda podaResult = podaRepository.save(poda);
 
 
 
 
-        return this.successStatus;
+        return podaResult;
     }
+
+
+    @Transactional
+    public void insertAll(List<Poda> podas){
+        podaRepository.saveAll(podas);
+    }
+
 
     public HashMap<String,String> schedule(int id,ScheduleOrder order){
 

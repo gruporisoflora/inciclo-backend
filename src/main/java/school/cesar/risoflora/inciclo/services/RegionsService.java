@@ -6,32 +6,32 @@ import org.springframework.stereotype.Service;
 import school.cesar.risoflora.inciclo.domain.Region;
 import school.cesar.risoflora.inciclo.repositories.RegionsRepository;
 
-import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class RegionsService {
 
+
+
     @Autowired
-    private RegionsRepository repo;
+    private RegionsRepository repository;
 
 
 
-    public RegionsRepository getRepo() {
-        return repo;
+    public RegionsRepository getRepository() {
+        return repository;
     }
 
-    public void setRepo(RegionsRepository repo) {
-        this.repo = repo;
+    public void setRepository(RegionsRepository repository) {
+        this.repository = repository;
     }
 
 
 
     public List<Region> findAll(){
 
-        List<Region> result=  repo.findAll();
+        List<Region> result=  repository.findAll();
 
 
 
@@ -39,9 +39,13 @@ public class RegionsService {
         return result;
     }
 
+
+
+
+
     @Transactional
     public void insertRegion(Region region){
-        repo.save(region);
+        repository.save(region);
     }
 
 

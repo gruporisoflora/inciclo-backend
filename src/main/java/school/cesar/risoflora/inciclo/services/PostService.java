@@ -11,6 +11,7 @@ import school.cesar.risoflora.inciclo.repositories.PostRepository;
 import school.cesar.risoflora.inciclo.utils.ResponseBody;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PostService {
@@ -35,6 +36,10 @@ public class PostService {
 
         return new ResponseBody<>(ResponseBody.ResponseType.OK,posts);
 
+    }
+
+    public void insertAll(List<Post> posts){
+        postRepository.saveAll(posts);
     }
 
     public ResponseBody updatePosts(Post posts){
